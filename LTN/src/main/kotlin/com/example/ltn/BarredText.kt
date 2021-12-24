@@ -1,5 +1,7 @@
 package com.example.ltn
 
+import javafx.collections.ObservableList
+import javafx.scene.Node
 import javafx.scene.layout.StackPane
 import javafx.scene.control.Label
 import javafx.scene.layout.Pane
@@ -9,6 +11,7 @@ class BarredText (text:String): StackPane() {
     private val label = Label(text)
     private val panel = Pane()
     private val line = Line()
+    private var _bg = ""
 
     // if TRUE, a line appears on the text
     var isBarred: Boolean
@@ -24,25 +27,54 @@ class BarredText (text:String): StackPane() {
             label.text = value
         }
 
-    companion object companion {
-        var conta = 0
+    var bg: String
+        get() = _bg
+        set(value) {
+            _bg = value
+            when (value) {
+                odd -> {
+                    panel.styleClass.remove(even)
+                    panel.styleClass.add(odd)
+                }
+                even -> {
+                    panel.styleClass.remove(odd)
+                    panel.styleClass.add(even)
+                }
+                else -> {
+                    panel.styleClass.add(value)
+                }
+            }
 
-        fun new() {
-            this.conta ++
+
         }
 
-        fun isOdd(): String {
+
+    companion object Colorator {
+        private var conta = 0
+        const val odd = "pane_odd"
+        const val even = "pane_even"
+
+        private fun initBg(): String {
+            conta += 1
+
             return if (conta%2 == 0)
-                "pane_odd"
+                even
             else
-                "pane_even"
+                odd
+        }
+
+        fun recolor(list: List<BarredText>) {
+            conta = 0
+
+            for (elem in list) {
+                elem.bg = initBg()
+            }
+
         }
     }
 
     init {
-        companion.new()
-
-        panel.styleClass.add(companion.isOdd())    // set CSS class
+        bg = initBg()
 
         line.strokeWidth = 1.5  // set line stroke
 

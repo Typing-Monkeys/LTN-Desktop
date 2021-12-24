@@ -55,7 +55,9 @@ class HelloController {
                 println("\tSett isBarred to ${source.isBarred} on $source")
             }
             MouseButton.SECONDARY -> {  // removing elem
-                box.children.remove(event.source)
+                box.children.remove((event.source as BarredText))
+
+                BarredText.recolor(box.children as List<BarredText>)
 
                 println("\tRemoved ${event.source}")
             }
