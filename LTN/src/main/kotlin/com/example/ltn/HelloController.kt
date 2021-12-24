@@ -35,9 +35,7 @@ class HelloController {
 
                     textField.text = ""
 
-                    box.children.remove(textField)
                     box.children.add(tmp)
-                    box.children.add(textField)
                 }
             }
     }
