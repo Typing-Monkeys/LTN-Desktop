@@ -12,9 +12,8 @@ import javafx.scene.layout.VBox
 
 class HelloController {
     @FXML private lateinit var box:VBox
-
-    private val list: ArrayList<TextField> = ArrayList()
     @FXML private lateinit var textField: TextField
+    //private val list: ArrayList<TextField> = ArrayList()
 
     /*
     @FXML
@@ -26,34 +25,41 @@ class HelloController {
     */
     @FXML
     private fun onTextTyped(event: KeyEvent) {
-        if (event.code != null)
-            if (event.code == KeyCode.ENTER) {
-                println("ENTER PRESSED !")
-                if (textField.text.isNotEmpty()) {
+        if (event.code != null) // check for safe type
+            if (event.code == KeyCode.ENTER) {  // check for ENTER pressed
+                if (textField.text.isNotEmpty()) {  // check if textbox is not empty
+                    // creating new elem
                     val tmp = BarredText(textField.text).apply {
                         setOnMouseClicked { onMousePressed(it) }
                     }
 
-                    textField.text = ""
+                    textField.text = ""     // removing current text from textbox
 
-                    box.children.add(tmp)
+                    box.children.add(tmp)   // add elem to VBox
+
+                    println("Added ${tmp.text} as $tmp")
                 }
             }
     }
 
     private fun onMousePressed(event: MouseEvent) {
-        println("MousePressed ${event.button} on ${event.source}")
+        val mouseButton = event.button
 
-        when (event.button) {
-            MouseButton.PRIMARY -> {
-                val source = event.source as BarredText
+        println("MousePressed $mouseButton on ${event.source}")
 
+        when (mouseButton) {
+            MouseButton.PRIMARY -> {    // toggle text barr
+                val source      = event.source as BarredText
                 source.isBarred = !source.isBarred
+
+                println("\tSett isBarred to ${source.isBarred} on $source")
             }
-            MouseButton.SECONDARY -> {
+            MouseButton.SECONDARY -> {  // removing elem
                 box.children.remove(event.source)
+
+                println("\tRemoved ${event.source}")
             }
-            else -> println("Do noting: ${event.button}")
+            else -> println("\tDo noting: ${event.button}")
         }
 
     }

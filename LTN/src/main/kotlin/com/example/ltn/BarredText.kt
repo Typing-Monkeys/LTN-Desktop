@@ -17,6 +17,13 @@ class BarredText (text:String): StackPane() {
             line.isVisible = value
         }
 
+    // handle label text prop
+    var text: String
+        get() = label.text
+        set(value) {
+            label.text = value
+        }
+
     companion object companion {
         var conta = 0
 
