@@ -2,6 +2,7 @@ package com.example.ltn
 
 import javafx.fxml.FXML
 import javafx.scene.control.Label
+import javafx.scene.control.ScrollPane
 import javafx.scene.control.TextField
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
@@ -13,11 +14,13 @@ import javafx.scene.layout.VBox
 class HelloController {
     @FXML private lateinit var box:VBox
     @FXML private lateinit var textField: TextField
+    @FXML private lateinit var scroll: ScrollPane
     //private val list: ArrayList<TextField> = ArrayList()
 
     /*
     @FXML
     fun initialize() {
+        //scroll.maxHeight =
         //textField = TextField().apply { setOnKeyPressed { onTextTyped(it) } }
 
         //box.children.add(textField)
