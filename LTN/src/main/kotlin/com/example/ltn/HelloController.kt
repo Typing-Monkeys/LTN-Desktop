@@ -5,6 +5,7 @@ import javafx.scene.control.Label
 import javafx.scene.control.TextField
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
+import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
 import javafx.scene.layout.VBox
 
@@ -41,10 +42,19 @@ class HelloController {
     }
 
     private fun onMousePressed(event: MouseEvent) {
-        println("MousePressed $event")
-        val source = event.source as BarredText
+        println("MousePressed ${event.button} on ${event.source}")
 
-        source.isBarred = !source.isBarred
+        when (event.button) {
+            MouseButton.PRIMARY -> {
+                val source = event.source as BarredText
+
+                source.isBarred = !source.isBarred
+            }
+            MouseButton.SECONDARY -> {
+                box.children.remove(event.source)
+            }
+            else -> println("Do noting: ${event.button}")
+        }
 
     }
 }
