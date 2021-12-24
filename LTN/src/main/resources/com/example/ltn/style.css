@@ -2,6 +2,12 @@
 	-fx-font-size: 16px;
 }
 
-.pane {
+.pane_even {
     -fx-background-color: lightgray;
 }
+
+.pane_odd {
+    -fx-background-color: white;
+}
+
+

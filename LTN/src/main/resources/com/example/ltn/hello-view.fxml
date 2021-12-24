@@ -6,11 +6,12 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
-<VBox fx:id="box" alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<VBox fx:id="box" alignment="TOP_CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.ltn.HelloController" stylesheets="@style.css">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="10.0"/>
+        <Insets left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <!--<TextField fx:id="text1" onKeyPressed="#onTextTyped"/>-->
+    <TextField fx:id="textField" onKeyPressed="#onTextTyped"/>
+
 </VBox>
