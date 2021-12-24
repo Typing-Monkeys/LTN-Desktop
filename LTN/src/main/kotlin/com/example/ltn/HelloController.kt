@@ -29,7 +29,7 @@ class HelloController {
         var label = Label("Io sono una scritta lunga")
 
         //box.children.add(label)
-
+        /*
         val pane = Pane()
         pane.styleClass.add("pane")
         val blueLine = Line()
@@ -43,9 +43,9 @@ class HelloController {
         pane.children.addAll(blueLine)
 
         val aaa = StackPane(pane, label)
+        */
 
-
-        box.children.add(aaa)
+        box.children.add(BarredText("Io sono una stringa bella"))
 
         //aaa.children[0].isVisible = false
     }
