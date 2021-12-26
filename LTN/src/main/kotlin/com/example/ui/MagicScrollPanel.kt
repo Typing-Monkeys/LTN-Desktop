@@ -11,7 +11,7 @@ import javafx.scene.control.ScrollPane
  */
 class MagicScrollPanel: ScrollPane() {
     private var scrollToBottom = false  // if true, triggers the scroll donw function in the listener
-    private val SPEED_MULT = 6          // multiplier for fast scrollspeed
+    var scrollSpeed: Int = 6            // multiplier for fast scrollspeed
 
     init {
         // when vvalue is changed check if scroll down
@@ -27,7 +27,7 @@ class MagicScrollPanel: ScrollPane() {
         Platform.runLater {     // runLater is kind a magic, it solves the NullPointer error !!
             this.content.setOnScroll {
                 // doing some scroll math
-                val deltaY: Double = it.deltaY * SPEED_MULT
+                val deltaY: Double = it.deltaY * scrollSpeed
                 val width: Double = this.content.boundsInLocal.width
                 val vvalue: Double = this.vvalue
 
