@@ -1,4 +1,4 @@
-package com.example.ltn
+package com.example.ui
 
 import javafx.application.Platform
 import javafx.beans.value.ChangeListener

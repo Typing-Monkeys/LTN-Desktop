@@ -11,6 +11,8 @@ import javafx.scene.input.KeyEvent
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
 import javafx.scene.layout.VBox
+import com.example.ui.BarredText
+import com.example.ui.MagicScrollPanel
 
 class LTNController {
     @FXML private lateinit var box:VBox

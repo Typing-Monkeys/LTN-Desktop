@@ -1,7 +1,5 @@
-package com.example.ltn
+package com.example.ui
 
-import javafx.collections.ObservableList
-import javafx.scene.Node
 import javafx.scene.layout.StackPane
 import javafx.scene.control.Label
 import javafx.scene.layout.Pane
@@ -57,7 +55,7 @@ class BarredText (text:String): StackPane() {
         private fun initBg(): String {
             conta += 1
 
-            return if (conta%2 == 0)
+            return if (conta %2 == 0)
                 even
             else
                 odd

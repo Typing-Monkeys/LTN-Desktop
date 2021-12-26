@@ -9,7 +9,7 @@
 
 <?import javafx.scene.control.ScrollPane?>
 <?import org.kordamp.bootstrapfx.scene.layout.Panel?>
-<?import com.example.ltn.MagicScrollPanel?>
+<?import com.example.ui.MagicScrollPanel?>
 <VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.ltn.LTNController" stylesheets="@style.css">
     <padding>
