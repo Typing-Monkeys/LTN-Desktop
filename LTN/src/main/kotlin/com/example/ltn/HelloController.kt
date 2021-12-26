@@ -1,7 +1,10 @@
 package com.example.ltn
 
+import javafx.beans.binding.Bindings
+import javafx.collections.FXCollections
+import javafx.collections.ObservableList
 import javafx.fxml.FXML
-import javafx.scene.control.Label
+import javafx.scene.Node
 import javafx.scene.control.ScrollPane
 import javafx.scene.control.TextField
 import javafx.scene.input.KeyCode
@@ -15,17 +18,15 @@ class HelloController {
     @FXML private lateinit var box:VBox
     @FXML private lateinit var textField: TextField
     @FXML private lateinit var scroll: ScrollPane
-    //private val list: ArrayList<TextField> = ArrayList()
 
-    /*
+    private val boxContent: ObservableList<Node> = FXCollections.observableArrayList<Node>()
+
+
     @FXML
     fun initialize() {
-        //scroll.maxHeight =
-        //textField = TextField().apply { setOnKeyPressed { onTextTyped(it) } }
-
-        //box.children.add(textField)
+        Bindings.bindContentBidirectional(boxContent, box.children)     // binds the list to VBox
     }
-    */
+
     @FXML
     private fun onTextTyped(event: KeyEvent) {
         if (event.code != null) // check for safe type
@@ -38,7 +39,7 @@ class HelloController {
 
                     textField.text = ""     // removing current text from textbox
 
-                    box.children.add(tmp)   // add elem to VBox
+                    boxContent.add(tmp)     // add element to VBox
 
                     println("Added ${tmp.text} as $tmp")
                 }
@@ -58,9 +59,9 @@ class HelloController {
                 println("\tSett isBarred to ${source.isBarred} on $source")
             }
             MouseButton.SECONDARY -> {  // removing elem
-                box.children.remove((event.source as BarredText))
+                boxContent.remove(event.source)
 
-                BarredText.recolor(box.children as List<BarredText>)
+                BarredText.recolor(boxContent as List<BarredText>)
 
                 println("\tRemoved ${event.source}")
             }
