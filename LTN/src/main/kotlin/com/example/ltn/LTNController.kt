@@ -1,13 +1,10 @@
 package com.example.ltn
 
-import javafx.application.Platform
 import javafx.beans.binding.Bindings
-import javafx.beans.value.ChangeListener
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.fxml.FXML
 import javafx.scene.Node
-import javafx.scene.control.ScrollPane
 import javafx.scene.control.TextField
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
@@ -15,7 +12,7 @@ import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
 import javafx.scene.layout.VBox
 
-class HelloController {
+class LTNController {
     @FXML private lateinit var box:VBox
     @FXML private lateinit var textField: TextField
     @FXML private lateinit var scroll: MagicScrollPanel

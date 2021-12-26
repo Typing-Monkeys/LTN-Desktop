@@ -7,7 +7,7 @@ import javafx.stage.Stage
 
 class HelloApplication : Application() {
     override fun start(stage: Stage) {
-        val fxmlLoader = FXMLLoader(HelloApplication::class.java.getResource("hello-view.fxml"))
+        val fxmlLoader = FXMLLoader(HelloApplication::class.java.getResource("ltn-view.fxml"))
         val scene = Scene(fxmlLoader.load(), 420.0, 540.0)
         stage.title = "Let Them Note"
         stage.scene = scene
