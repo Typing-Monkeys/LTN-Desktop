@@ -15,7 +15,7 @@
         <Insets left="20.0" right="20.0" top="20.0" bottom="20.0"/>
     </padding>
 
-    <ScrollPane fx:id="scroll" hbarPolicy="NEVER" fitToWidth="true" style="-fx-background-color:transparent;">
+    <ScrollPane fx:id="scroll" hbarPolicy="NEVER" fitToWidth="true">
             <VBox fx:id="box" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml"/>
     </ScrollPane>
     <TextField fx:id="textField" onKeyPressed="#onTextTyped"/>

@@ -21,10 +21,21 @@ class HelloController {
 
     private val boxContent: ObservableList<Node> = FXCollections.observableArrayList<Node>()
 
+    private val SPEED_MULT = 6  // multiplier for fast scrollspeed
 
     @FXML
     fun initialize() {
         Bindings.bindContentBidirectional(boxContent, box.children)     // binds the list to VBox
+
+        // scrollpane vertical scroll speed
+        box.setOnScroll {
+            // doing some scroll math
+            val deltaY: Double = it.deltaY * SPEED_MULT
+            val width: Double = scroll.content.boundsInLocal.width
+            val vvalue: Double = scroll.vvalue
+
+            scroll.vvalue = vvalue + -deltaY / width
+        }
     }
 
     @FXML
