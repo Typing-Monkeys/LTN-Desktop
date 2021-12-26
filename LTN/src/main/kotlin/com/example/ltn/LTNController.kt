@@ -28,6 +28,13 @@ class LTNController {
     }
 
     @FXML
+    /**
+     * TextTyped Event Handler
+     *
+     * When it detects a ENTER in the text field add the text as an element of the ScrollPane
+     *
+     * @param event the keyboard event
+     */
     private fun onTextTyped(event: KeyEvent) {
         if (event.code != null) // check for safe type
             if (event.code == KeyCode.ENTER) {  // check for ENTER pressed
@@ -47,6 +54,18 @@ class LTNController {
             }
     }
 
+    /**
+     * MouseEvent Handler
+     *
+     * Handle the mouse button press:
+     *  - if PRIMARY button is pressed over a ScrollPane element trigger the elem isBarred property
+     *  - if SECONDARY button is pressed over a ScrollPane element delete the elem
+     *  - else do nothing
+     *
+     *  Always set focus on the text field !
+     *
+     *  @param event the mouse event
+     */
     private fun onMousePressed(event: MouseEvent) {
         val mouseButton = event.button
 

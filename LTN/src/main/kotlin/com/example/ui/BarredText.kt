@@ -5,6 +5,13 @@ import javafx.scene.control.Label
 import javafx.scene.layout.Pane
 import javafx.scene.shape.Line
 
+/**
+ * A text with barred option that is not a Text !
+ *
+ * This class simulate a text with 'line-through' decoration (a line over the text).
+ *
+ * @param text the text to show
+ */
 class BarredText (text:String): StackPane() {
     private val label = Label(text)
     private val panel = Pane()
