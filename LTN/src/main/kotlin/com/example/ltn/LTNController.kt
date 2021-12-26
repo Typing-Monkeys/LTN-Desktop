@@ -69,5 +69,8 @@ class LTNController {
             else -> println("\tDo noting: ${event.button}")
         }
 
+        // always focus the textField
+        textField.requestFocus()
+
     }
 }
