@@ -16,7 +16,6 @@ class BarredText (text:String): StackPane() {
     private val label = Label(text)
     private val panel = Pane()
     private val line = Line()
-    private var _bg = ""
 
     // if TRUE, a line appears on the text
     var isBarred: Boolean
@@ -32,10 +31,9 @@ class BarredText (text:String): StackPane() {
             label.text = value
         }
 
-    var bg: String
-        get() = _bg
+    var bg: String = ""
         set(value) {
-            _bg = value
+            field = value
             when (value) {
                 odd -> {
                     panel.styleClass.remove(even)
