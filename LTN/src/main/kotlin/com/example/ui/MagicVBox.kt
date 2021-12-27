@@ -23,10 +23,25 @@ class MagicVBox: VBox() {
         }
     }
 
+    /**
+     * Binds the [MagicVBox.children] list with the given [bindList] list.
+     *
+     * @param bindList List with the children nodes.
+     */
     fun bindContent(bindList: ObservableList<Node>) {
         Bindings.bindContentBidirectional(bindList, this.children)
     }
 
+    /**
+     * Choose the right bg for the node.
+     * Used to set the bg for new added node.
+     * For now set the bg for the even and odd children:
+     *  - if children is in an Odd position: bg = white
+     *  - else (means children in Even position): bg = lightgray
+     *
+     * @param index Index of the node in the list
+     * @param node The new node
+     */
     private fun initBg(index: Int, node: Node) {
         val elem = node as BarredText
 
@@ -36,6 +51,10 @@ class MagicVBox: VBox() {
             elem.bg = "white"
     }
 
+    /**
+     * Update all the children bgs.
+     * Used when a child is removed and bgs needs to be updated
+     */
     fun updateBgs() {
         val nodes = this.children
 
