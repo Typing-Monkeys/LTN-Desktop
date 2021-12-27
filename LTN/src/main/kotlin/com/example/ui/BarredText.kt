@@ -37,9 +37,9 @@ class BarredText (text:String): StackPane() {
     var bg: String = ""
         set(value) {
             field = value
-            this.style = "-fx-background-color: ${value};"
-        }
-
+            this.style += "-fx-background-color: ${value};"     // this should prevent to reset all the css props
+        }                                                       // when a bg is set. Seems that adding same css prop
+                                                                // rewrite the existing one without touching the others
 
     companion object Colorator {
         private var conta = 0
@@ -65,7 +65,7 @@ class BarredText (text:String): StackPane() {
     }
 
     init {
-        bg = initBg()
+        bg = initBg()           // set initial bg
 
         line.strokeWidth = 1.5  // set line stroke
 
