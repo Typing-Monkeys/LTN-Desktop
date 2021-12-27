@@ -10,6 +10,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import org.kordamp.bootstrapfx.scene.layout.Panel?>
 <?import com.example.ui.MagicScrollPanel?>
+<?import com.example.ui.MagicVBox?>
 <VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.ltn.LTNController" stylesheets="@style.css">
     <padding>
@@ -17,7 +18,7 @@
     </padding>
 
     <MagicScrollPanel fx:id="scroll" hbarPolicy="NEVER" fitToWidth="true">
-            <VBox fx:id="box" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml"/>
+            <MagicVBox fx:id="box" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml"/>
     </MagicScrollPanel>
     <TextField fx:id="textField" onKeyPressed="#onTextTyped"/>
 

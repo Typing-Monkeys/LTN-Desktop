@@ -1,6 +1,5 @@
 package com.example.ltn
 
-import javafx.beans.binding.Bindings
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.fxml.FXML
@@ -10,16 +9,12 @@ import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
-import javafx.scene.layout.VBox
 import com.example.ui.BarredText
 import com.example.ui.MagicScrollPanel
-import com.sun.javafx.tk.Toolkit
-import javafx.application.Platform
-import javafx.scene.layout.Background
-import javafx.scene.paint.Color
+import com.example.ui.MagicVBox
 
 class LTNController {
-    @FXML private lateinit var box:VBox
+    @FXML private lateinit var box: MagicVBox
     @FXML private lateinit var textField: TextField
     @FXML private lateinit var scroll: MagicScrollPanel
 
@@ -27,8 +22,7 @@ class LTNController {
 
     @FXML
     fun initialize() {
-        Bindings.bindContentBidirectional(boxContent, box.children)     // binds the list to VBox
-
+        box.bindContent(boxContent)
     }
 
     @FXML
@@ -86,7 +80,7 @@ class LTNController {
             MouseButton.SECONDARY -> {  // removing elem
                 boxContent.remove(event.source)
 
-                BarredText.recolor(boxContent)
+                box.updateBgs()
 
                 println("\tRemoved ${event.source}")
             }

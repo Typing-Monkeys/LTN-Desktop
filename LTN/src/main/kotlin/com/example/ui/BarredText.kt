@@ -1,7 +1,5 @@
 package com.example.ui
 
-import javafx.collections.ObservableList
-import javafx.scene.Node
 import javafx.scene.layout.StackPane
 import javafx.scene.control.Label
 import javafx.scene.layout.Pane
@@ -41,32 +39,7 @@ class BarredText (text:String): StackPane() {
         }                                                       // when a bg is set. Seems that adding same css prop
                                                                 // rewrite the existing one without touching the others
 
-    companion object Colorator {
-        private var conta = 0
-        //const val odd = "pane_odd"
-        //const val even = "pane_even"
-
-        private fun initBg(): String {
-            conta += 1
-
-            return if (conta %2 == 0)
-                "white"
-            else
-                "lightgray"
-        }
-
-        fun recolor(list: ObservableList<Node>) {
-            conta = 0
-
-            for (elem in list) {
-                (elem as BarredText).bg = initBg()
-            }
-        }
-    }
-
     init {
-        bg = initBg()           // set initial bg
-
         line.strokeWidth = 1.5  // set line stroke
 
         // binds the line to the label
