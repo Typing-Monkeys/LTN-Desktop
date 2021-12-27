@@ -33,39 +33,26 @@ class BarredText (text:String): StackPane() {
             label.text = value
         }
 
+    // set the bg color
     var bg: String = ""
         set(value) {
             field = value
-            when (value) {
-                odd -> {
-                    panel.styleClass.remove(even)
-                    panel.styleClass.add(odd)
-                }
-                even -> {
-                    panel.styleClass.remove(odd)
-                    panel.styleClass.add(even)
-                }
-                else -> {
-                    panel.styleClass.add(value)
-                }
-            }
-
-
+            this.style = "-fx-background-color: ${value};"
         }
 
 
     companion object Colorator {
         private var conta = 0
-        const val odd = "pane_odd"
-        const val even = "pane_even"
+        //const val odd = "pane_odd"
+        //const val even = "pane_even"
 
         private fun initBg(): String {
             conta += 1
 
             return if (conta %2 == 0)
-                even
+                "white"
             else
-                odd
+                "lightgray"
         }
 
         fun recolor(list: ObservableList<Node>) {
@@ -74,7 +61,6 @@ class BarredText (text:String): StackPane() {
             for (elem in list) {
                 (elem as BarredText).bg = initBg()
             }
-
         }
     }
 

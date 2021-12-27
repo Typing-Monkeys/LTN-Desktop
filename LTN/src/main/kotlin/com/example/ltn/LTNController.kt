@@ -13,6 +13,10 @@ import javafx.scene.input.MouseEvent
 import javafx.scene.layout.VBox
 import com.example.ui.BarredText
 import com.example.ui.MagicScrollPanel
+import com.sun.javafx.tk.Toolkit
+import javafx.application.Platform
+import javafx.scene.layout.Background
+import javafx.scene.paint.Color
 
 class LTNController {
     @FXML private lateinit var box:VBox
@@ -78,6 +82,7 @@ class LTNController {
 
                 println("\tSett isBarred to ${source.isBarred} on $source")
             }
+
             MouseButton.SECONDARY -> {  // removing elem
                 boxContent.remove(event.source)
 
@@ -85,6 +90,7 @@ class LTNController {
 
                 println("\tRemoved ${event.source}")
             }
+
             else -> println("\tDo noting: ${event.button}")
         }
 
