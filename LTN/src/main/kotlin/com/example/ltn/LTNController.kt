@@ -81,7 +81,7 @@ class LTNController {
             MouseButton.SECONDARY -> {  // removing elem
                 boxContent.remove(event.source)
 
-                BarredText.recolor(boxContent as List<BarredText>)
+                BarredText.recolor(boxContent)
 
                 println("\tRemoved ${event.source}")
             }

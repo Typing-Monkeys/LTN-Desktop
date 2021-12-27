@@ -1,5 +1,7 @@
 package com.example.ui
 
+import javafx.collections.ObservableList
+import javafx.scene.Node
 import javafx.scene.layout.StackPane
 import javafx.scene.control.Label
 import javafx.scene.layout.Pane
@@ -66,11 +68,11 @@ class BarredText (text:String): StackPane() {
                 odd
         }
 
-        fun recolor(list: List<BarredText>) {
+        fun recolor(list: ObservableList<Node>) {
             conta = 0
 
             for (elem in list) {
-                elem.bg = initBg()
+                (elem as BarredText).bg = initBg()
             }
 
         }
