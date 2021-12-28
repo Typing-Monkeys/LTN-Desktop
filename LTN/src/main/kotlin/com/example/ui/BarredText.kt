@@ -31,54 +31,15 @@ class BarredText (text:String): StackPane() {
             label.text = value
         }
 
+    // set the bg color
     var bg: String = ""
         set(value) {
             field = value
-            when (value) {
-                odd -> {
-                    panel.styleClass.remove(even)
-                    panel.styleClass.add(odd)
-                }
-                even -> {
-                    panel.styleClass.remove(odd)
-                    panel.styleClass.add(even)
-                }
-                else -> {
-                    panel.styleClass.add(value)
-                }
-            }
-
-
-        }
-
-
-    companion object Colorator {
-        private var conta = 0
-        const val odd = "pane_odd"
-        const val even = "pane_even"
-
-        private fun initBg(): String {
-            conta += 1
-
-            return if (conta %2 == 0)
-                even
-            else
-                odd
-        }
-
-        fun recolor(list: List<BarredText>) {
-            conta = 0
-
-            for (elem in list) {
-                elem.bg = initBg()
-            }
-
-        }
-    }
+            this.style += "-fx-background-color: ${value};"     // this should prevent to reset all the css props
+        }                                                       // when a bg is set. Seems that adding same css prop
+                                                                // rewrite the existing one without touching the others
 
     init {
-        bg = initBg()
-
         line.strokeWidth = 1.5  // set line stroke
 
         // binds the line to the label
